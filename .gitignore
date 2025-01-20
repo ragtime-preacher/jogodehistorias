@@ -4,3 +4,4 @@
 /code/test2.py
 /.vscode
 .gitignore
+pyvenv.cfg
