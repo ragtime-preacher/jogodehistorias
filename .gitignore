@@ -5,3 +5,4 @@
 /.vscode
 .gitignore
 pyvenv.cfg
+/venv/*
