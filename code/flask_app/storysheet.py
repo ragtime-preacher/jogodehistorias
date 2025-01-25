@@ -89,7 +89,7 @@ class StorySheet :
     def insert_room_id (self, room_id) :
         self.metasheet.update_cell(2, 1, room_id)
 
-    def set_accepting_new_players (self, accept: bool) :
+    def set_game_started (self, accept: bool) :
         self.metasheet.update_cell(2, 2, accept)
 
     def set_owner (self, owner: str) :
