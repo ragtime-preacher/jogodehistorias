@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>Writing Page</title>
+    </head>
+    <body>
+        <h2>Rigmarole ONLINE</h2>
+        <div id="previous-story-div">
+            <h4>The story so far...</h4>
+            <pre style="font-family:Arial, Helvetica, sans-serif;
+             font-size: 16px;
+             white-space: pre-wrap;">
+                <p id="story-so-far" style="font-size: small;">{{ previous_story }}</p>
+            </pre>
+        </div>
+        <div id="story-addition-div" style="text-align: center; padding: 2em;">
+            <form method="post">
+                <label for="story-addition">Your addition to the story:<br/></label>
+                <textarea id="story-addition" name="story-addition" rows="10" style="width: 100%;">
+what happens next?</textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+    <footer>
+        <h6 id="copyright shpeel">&copy; Elder Bryan Loertscher, 2025. All rights reserved.<br/>GitHub: <i>insert github link</i></h6>
+    </footer>
+</html>

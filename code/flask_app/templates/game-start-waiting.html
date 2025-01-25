@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>waiting...</title>
+        <!-- Time for JS frontend.
+         We'll be checking to see if our room is ready to start yet
+         (this determined by the "accepting_new_players" value in our
+          metadata dictionary) -->
+        <script>
+            function checkForGameStart () {
+                fetch('/check-game-start')
+                    .then(response => response.json())
+                    .then(data=> {
+                        if (data.redirect == "TRUE") {
+                            // send us to a new page
+                            window.location.href = '/writing-page';
+                        }
+                    })
+                    .catch(error => console.error('Que paia! Error:', error));
+            }
+            // let's do this check every 10 seconds.
+            setInterval(checkForGameStart, 10*1000);
+        </script>
+    </head>
+    <body>
+        <h2>Rigmarole ONLINE</h2>
+        <pre style="font-size: small;
+        font-family: Arial, Helvetica, sans-serif;">
+            You are in the room owned by: {{ room_owner }}
+        </pre>
+        <p style="font-size: small;">Waiting for the game to start</p>
+    </body>
+</html>

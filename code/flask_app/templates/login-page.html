@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Story Game Login</title>
+    </head>
+    <body>
+        <h1>Rigmarole ONLINE</h1>
+        <h3>Enter an existing room:</h3>
+        <form action="/login-request" method="post">
+            <label for="username">Your name:</label>
+            <input type="text" id="username" name="username">
+            <label for="room-id">Room ID:</label>
+            <input type="text" id="room-id" name="room-id">
+            <button type="submit">let me in!</button>
+        </form>
+        <h3>Create a new room (you'll be admin) :</h3>
+        <form action="/create-room" method="post">
+            <label for="username">Your name:</label>
+            <input type="text" id="username" name="username">
+            <button type="submit">Create Room</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>create a room</title>
+        <!-- ugh javascript time -->
+        <!-- <script>
+            const eventSource = new EventSource('/player-count-updates');
+            eventSource.onmessage = function(event) {
+                const contentDiv = document.getElementById('player-count');
+                contentDiv.innerHTML = JSON.stringify(JSON.parse(event.data), null, 2);
+            };
+
+            eventSource.onerror = function () {
+                console.error('Error with SSE connection');
+            };
+        </script> -->
+        <script>
+            function fetchUpdates () {
+                fetch('/player-count-updates')
+                    .then(response => response.json())
+                    .then(data => {
+                        const contentDiv = document.getElementById('player-count');
+                        contentDiv.textContent = data.message;
+                        console.log(data.message);
+                    })
+                    .catch(error => console.error('Error fetching updates:', error));
+            }
+            // updates every 10 seconds
+            setInterval(fetchUpdates, 10000)
+        </script>
+        <!-- loader style -->
+         <style>
+            #loader {
+                border: 1em solid grey;
+                border-top: 1em solid darkblue;
+                border-radius: 50%;
+                width: 2em;
+                height: 2em;
+                animation: spin 2s linear infinite;
+            }
+
+            #centered-div {
+                margin: auto;
+                width: 50%;
+                background-color: lightgrey;
+                padding: 10px;
+            }
+
+            @keyframes spin {
+                0% {transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+         </style>
+    </head>
+    <body>
+        <h2>Rigmarole ONLINE</h2>
+        <div id="centered-div">
+            <p>Congratulations! You're now ADMIN of a room.</p>
+            <p>The Room ID is:<br/>{{ room_id }}<br/>Players will need it to enter the room.</p>
+            <div id="loader"></div>
+            <pre
+                id="player-count"
+                style="font-family: Arial, Helvetica, sans-serif;">
+waiting for player count
+            </pre>
+            <form action="/start-game" method="post">
+                <label for="start-button">Finished?</label>
+                <button type="submit" id="start-button">Start Game</button>
+            </form>
+        </div>
+    </body>
+</html>
