@@ -88,7 +88,7 @@ def get_updates () :
 def start_game () :
     if request.method == "POST":
         # do something about room starting
-        storybase.set_accepting_new_players(True)
+        storybase.set_game_started(True)
         return redirect(url_for("writing_page"))
 
 @app.route("/check-game-start", methods=["GET"])
