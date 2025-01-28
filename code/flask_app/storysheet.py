@@ -40,7 +40,7 @@ class StorySheet :
         except gspread.WorksheetNotFound:
             self.metasheet = self.workbook.add_worksheet (title="meta")
         
-        # self.clean_slate()
+        self.clean_slate()
         self.data = self.worksheet.get_all_records()
 
     def update_data (self) :
@@ -167,13 +167,103 @@ We should be able to get total_users by computing the length of
         return 0
     # this return should never be used.
 
+    def write_target_story (self, storyid: int, story_addition: str) :
+        self.update_data ()
+        try:
+            story_row = self.data[storyid]
+        except IndexError as ie:
+            return str(ie)
+        assert (type(story_row) == dict)
+        # storyid is our target y index in self.data.
+        headers = self.worksheet.row_values(1)
+        col_counter = 0
+        for i_col in story_row.keys() :
+            col_counter += 1
+            if story_row[i_col] == "":
+                # we've found an empty row.
+                break
+            else:
+                continue
+        # so if I did this right, col_counter now equals the desired column
+        #   index for the row we need to update.
+        self.worksheet.update_cell (storyid+2, col_counter, story_addition)
+        # we add 2 to storyid here beceause row 1 in the 
+        #   worksheet.update_cell() function is the headers (dictionary keys)
+        #   and our storyids start at 0, whereas the column index starts at 1.
+        return
+    
+    def get_round_over (self, round_num: int) -> bool:
+        self.update_data()
+        # iterate through our data
+        for i_row in self.data:
+            if i_row[f"round{round_num}"] == "" :
+                # we've found an empty cell in the row column.
+                # therefore, somebody hasn't written their story yet and
+                #   we aren't done.
+                return False
+            else: continue
+        # if we make it all the way, then everybody must be done.
+        return True
+
+    def get_current_round (self) :
+        self.update_data()
+        highest_round_counter = 0
+        for i_row in self.data:
+            round_counter = 1
+            for i_col_key in i_row.keys():
+                if not "round" in i_col_key:
+                    # this is a data cell, not a round
+                    continue
+                elif i_row[i_col_key] != "":
+                    # this is a story cell with stuff in it
+                    round_counter += 1
+                else: continue # this is an empty cell
+            if round_counter > highest_round_counter:
+                highest_round_counter = round_counter
+        print (highest_round_counter)
+        return highest_round_counter
+    
+    def get_game_over (self) :
+        # A game over occurs when everybody has written on everybody's story.
+        # So basically, to determine if a game over has occured, we'll check
+        #   to see if there are any empty spaces in our data.
+        self.update_data ()
+        for i_row in self.data :
+            for key in i_row.keys() :
+                if not "round" in key:
+                    continue
+                elif i_row[key] == "":
+                    # We found an empty story cell! We aren't done yet.
+                    return False
+                else: continue
+            continue
+        # the only way to get this far is to avoid returning false from
+        #   finding an empty cell, so all the cells must be full.
+        return True
+    
+    def collect_stories (self) :
+        self.update_data ()
+        story_list = []
+        for i_row in self.data:
+            accumulated_story = ""
+            for i_key in i_row.keys():
+                # skip non-round columns
+                if not "round" in i_key: continue
+                else:
+                    accumulated_story += f"\n{i_row[i_key]}"
+            story_list.append ({
+                    "author": f"{i_row["username"]}",
+                    "content": accumulated_story
+                })
+        return story_list
 
 def main () :
     testSheet = StorySheet(creds, "rigmarole-testing", "stories")
     testSheet.clean_slate()
     testSheet.add_new_user("Burt")
-    testSheet.add_new_user("tom")
+    testSheet.add_new_user("Tom")
     testSheet.add_new_user("William")
+    print (testSheet.data)
 
 if __name__ == "__main__":
     main ()
