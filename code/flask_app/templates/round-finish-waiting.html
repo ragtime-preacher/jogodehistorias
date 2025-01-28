@@ -12,8 +12,12 @@
                     .then(data=> {
                         console.log(data.redirect)
                         if (data.redirect == true) {
-                            // send us to a new page
+                            // send us to the next story writing page
                             window.location.href = '/writing-page';
+                        }
+                        else if (data.redirect == 'GAMEOVER') {
+                            // take us to the story reviewing page
+                            window.location.href = '/review-stories';
                         }
                     })
                     .catch(error => console.error('Que paia! Error:', error));
