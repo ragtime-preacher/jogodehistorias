@@ -4,6 +4,23 @@
     <head>
         <meta charset="UTF-8">
         <title>waiting...</title>
+        <!-- JS frontend time let's go -->
+        <script>
+            function checkForRoundFinished () {
+                fetch('/check-round-finished')
+                    .then(response => response.json())
+                    .then(data=> {
+                        console.log(data.redirect)
+                        if (data.redirect == true) {
+                            // send us to a new page
+                            window.location.href = '/writing-page';
+                        }
+                    })
+                    .catch(error => console.error('Que paia! Error:', error));
+            }
+            // let's do this check every 10 seconds.
+            setInterval(checkForRoundFinished, 10*1000);
+        </script>
     </head>
     <body>
         <h2>Rigmarole ONLINE</h2>
