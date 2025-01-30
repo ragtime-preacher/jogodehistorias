@@ -275,7 +275,7 @@ We should be able to get total_users by computing the length of
                 else:
                     accumulated_story += f"\n{i_row[i_key]}"
             story_list.append ({
-                    "author": f"{i_row["username"]}",
+                    "author": str(i_row["username"]),
                     "content": accumulated_story
                 })
         return story_list
