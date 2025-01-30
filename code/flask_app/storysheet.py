@@ -167,7 +167,28 @@ We should be able to get total_users by computing the length of
         return 0
     # this return should never be used.
 
-    def write_target_story (self, storyid: int, story_addition: str) :
+    def get_target_storyid_round_counter (
+        self,
+        username: str,
+        round: int
+    ) -> int:
+        self.update_data ()
+        total_users = len(self.data)
+        for row in self.data:
+            assert type(row) == dict
+            if row["username"] == username:
+                # we've found the home row!
+                home_storyid = row["storyid"]
+        target_storyid = (int(home_storyid) + round-1) % total_users
+        # round is -1 here because we don't actually want to change from our
+        #   home row on the first round (which is round  #1)
+        return target_storyid
+
+
+    def write_target_story (self,
+                            storyid: int,
+                            story_addition: str,
+                            round: int) :
         self.update_data ()
         try:
             story_row = self.data[storyid]
@@ -186,10 +207,12 @@ We should be able to get total_users by computing the length of
                 continue
         # so if I did this right, col_counter now equals the desired column
         #   index for the row we need to update.
-        self.worksheet.update_cell (storyid+2, col_counter, story_addition)
+        self.worksheet.update_cell (storyid+2, round+2, story_addition)
         # we add 2 to storyid here beceause row 1 in the 
         #   worksheet.update_cell() function is the headers (dictionary keys)
         #   and our storyids start at 0, whereas the column index starts at 1.
+        # we add 2 to the round because the first two columns of data don't 
+        #   include the story.
         return
     
     def get_round_over (self, round_num: int) -> bool:

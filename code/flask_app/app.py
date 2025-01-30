@@ -54,18 +54,25 @@ def writing_page () :
         # pull text from the textarea
         story_addition = request.form['story-addition']
         print (story_addition) # debuggin
-        target_storyid = storybase.get_target_storyid(session.get("username"))
-        storybase.write_target_story(target_storyid, story_addition=story_addition)
+        target_storyid = storybase.get_target_storyid_round_counter(
+            session.get("username"),
+            session.get("current_round"))
+        storybase.write_target_story(target_storyid,
+                                     story_addition=story_addition,
+                                     round=session.get("current_round"))
         # TODO: spit this out on the google sheets
         return redirect(url_for("round_finish_waiting"))
     else:
-        # We'll try to increment the session counter. If we can't find it,
+        # We'll try to increment the round counter. If we can't find it,
         #   we'll create the key with a value of 1.
         try:
             session["current_round"] += 1
         except KeyError:
             session["current_round"] = 1
-        target_storyid = storybase.get_target_storyid(session.get("username"))
+        target_storyid = storybase.get_target_storyid_round_counter (
+            session.get("username"),
+            session.get("current_round")
+        )
         target_story_todate = storybase.get_current_story(target_storyid)
         return render_template (
             'writing-page.html',
