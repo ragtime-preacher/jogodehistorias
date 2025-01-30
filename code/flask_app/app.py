@@ -85,7 +85,7 @@ def create_room () :
     if request.method == "POST":
         username = request.form["username"]
         session["username"] = username
-        new_room_id = abs(hash(str(username)))
+        new_room_id = str(abs(hash(str(username))))[-6:]
         storybase.insert_room_id (str(new_room_id))
         storybase.set_owner (username)
         storybase.set_game_started ("FALSE")
