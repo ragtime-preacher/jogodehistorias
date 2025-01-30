@@ -10,7 +10,7 @@ scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/aut
 
 # authenticate using the service account JSON key
 
-creds = ServiceAccountCredentials.from_json_keyfile_name("/home/lurch5-64/progamming/jogodehistorias/creds/jogodehistorias-beta-e6e6f9107f08.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("creds/jogodehistorias-beta-e6e6f9107f08.json", scope)
 
 storybase = StorySheet (creds, "rigmarole-testing", "stories")
 # TODO: use session to store user data to use in retrieval of stories from the google sheet.
