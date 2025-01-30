@@ -4,27 +4,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# define the scope
-scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/drive"]
-
-# authenticate using the service account JSON key
-
-creds = ServiceAccountCredentials.from_json_keyfile_name("/home/lurch5-64/progamming/jogodehistorias/creds/jogodehistorias-beta-e6e6f9107f08.json", scope)
-"""client = gspread.authorize(creds)
-
-# open the google sheet
-sheet = client.open("rigmarole-testing").worksheet("stories")
-
-# read data from the sheet
-data = sheet.get_all_records ()
-print ("sheet data:", data)
-"""
-"""# write data to the sheet
-sheet.update_cell(2, 1, "Hello, Google Sheets!") # update cell B2
-
-# add a new row
-sheet.append_row(["New Data", "123", "456"])
-"""
 class StorySheet :
     def __init__ (
             self,
@@ -133,6 +112,8 @@ class StorySheet :
     #   given a username, establish what story we should be working on next.
     #   we'll do this by counting how many sections of the story have been
     #   written already (how many rounds are filled).
+    # NOTE: DEPRECATED, use get_target_storyid_round_counter
+    # TODO: refactor code to remove unused functions
     def get_target_storyid (self, username: str) -> int:
         self.update_data ()
         for row in self.data:
@@ -279,14 +260,3 @@ We should be able to get total_users by computing the length of
                     "content": accumulated_story
                 })
         return story_list
-
-def main () :
-    testSheet = StorySheet(creds, "rigmarole-testing", "stories")
-    testSheet.clean_slate()
-    testSheet.add_new_user("Burt")
-    testSheet.add_new_user("Tom")
-    testSheet.add_new_user("William")
-    print (testSheet.data)
-
-if __name__ == "__main__":
-    main ()
