@@ -9,8 +9,12 @@ from flask_cors import CORS
 scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/auth/drive"]
 
 # authenticate using the service account JSON key
-
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds/jogodehistorias-beta-e6e6f9107f08.json", scope)
+# NOTE: now that we're trying to run this on Render, the production branch will
+#   use Render's "Secret file" to keep this api key safe.
+creds = ServiceAccountCredentials.from_json_keyfile_name (
+    "/etc/secrets/jogodehistorias-beta-e6e6f9107f08.json",
+    scope
+)
 
 storybase = StorySheet (creds, "rigmarole-testing", "stories")
 # TODO: use session to store user data to use in retrieval of stories from the google sheet.
