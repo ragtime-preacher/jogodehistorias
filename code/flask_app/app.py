@@ -139,7 +139,3 @@ def review_stories () :
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# TODO:
-#   Figure out why the stories get written to the wrong place when
-#   I submit them out of order.
