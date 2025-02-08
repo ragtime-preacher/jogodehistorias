@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
     <head>
         <meta charset="UTF-8">
         <title>Writing Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     </head>
     <header>
-        The Story Game ONLINE
+        The Story Game - online
     </header>
     <body>
         <p id="player-name" style="font-size: smaller">You are logged in as: {{ player_name }}</p>
-        <div id="previous-story-div">
-            <h4>The story so far...</h4>
+        <div id="previous-story-div" class="centered-div">
+            <h3>The story so far...</h4>
             <pre style="font-family:Arial, Helvetica, sans-serif;
              font-size: 16px;
-             white-space: pre-wrap;">
-                <p id="story-so-far" style="font-size: small;">{{ previous_story }}</p>
+             white-space: pre-wrap;"
+             class="content">
+                <p id="story-so-far" class="content">{{ previous_story }}</p>
             </pre>
         </div>
-        <div id="story-addition-div" style="text-align: center; padding: 2em;">
+        <div id="story-addition-div" class="centered-div">
             <form method="post">
-                <label for="story-addition">Your addition to the story:<br/></label>
-                <textarea id="story-addition" name="story-addition" rows="10" style="width: 100%;">
-what happens next?</textarea>
-                <input type="submit" value="Submit">
+                <label for="story-addition" class="content">Your addition to the story:<br/></label>
+                <textarea id="story-addition"
+                name="story-addition"
+                rows="10"
+                style="width: 100%;"
+                placeholder="what happened next?"></textarea>
+                <button type="submit">I'm done!</button>
             </form>
         </div>
     </body>

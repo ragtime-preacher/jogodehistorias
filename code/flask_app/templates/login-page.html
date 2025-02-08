@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="../static/style.css">
         <meta charset="UTF-8">
         <title>Story Game Login</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     </head>
     <header>
-        The Story Game ONLINE
+        The Story Game - online
     </header>
     <body>
-        <h3>Enter an existing room:</h3>
-        <form action="/login-request" method="post">
-            <label for="username">Your name:</label>
-            <input type="text" id="username" name="username">
-            <label for="room-id">Room ID:</label>
-            <input type="text" id="room-id" name="room-id">
-            <button type="submit">let me in!</button>
-        </form>
-        <h3>Create a new room (you'll be admin) :</h3>
-        <form action="/create-room" method="post">
-            <label for="username">Your name:</label>
-            <input type="text" id="username" name="username">
-            <button type="submit">Create Room</button>
-        </form>
+        <div class="centered-div">
+            <h3 class="content">Enter an existing room:</h3>
+            <form action="/login-request" method="post" class="content">
+                <div class="grid-container">
+                    <label for="username">Your name:</label>
+                    <input type="text" id="username" name="username">
+
+                    <label for="room-id">Room ID:</label>
+                    <input type="text" id="room-id" name="room-id">
+                </div>
+                <button type="submit">let me in!</button>
+            </form>
+        </div>
+        <div class="centered-div">
+            <h3 class="content">or create a new room (you'll be admin) :</h3>
+            <form action="/create-room" method="post" class="content">
+                <div class="grid-container">
+                    <label for="username">Your name:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <button type="submit">Create Room</button>
+            </form>
+        </div>
     </body>
+    <footer>
+        <h6 id="copyright shpeel">&copy; Elder Bryan Loertscher, 2025. All rights reserved.<br/>GitHub: <i>insert github link</i></h6>
+    </footer>
 </html>

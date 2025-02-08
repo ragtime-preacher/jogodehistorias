@@ -1,7 +1,7 @@
 header {
     background-color: #544b3d;
     color: #fffdd0;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Mrs Saint Delafield", cursive;
     padding: 1em;
     position: sticky;
     top: 0;
@@ -10,9 +10,84 @@ header {
     box-sizing: border-box;
     font-weight: bold;
     font-size: x-large;
+
 }
 
 body {
     margin: 0;
     background-color: #fffdd0;
+}
+
+footer {
+    color: #544b3d;
+}
+
+#loader {
+    border: 1em solid #639a88;
+    border-top: 1em solid #544b3d;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    animation: spin 2s linear infinite;
+}
+
+.centered-div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2em;
+}
+
+#login-link {
+    color: #fffdd0;
+    padding: 1em;
+    background-color: #544b3d;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* h3 is used in the login page to label our forms */
+h3 {
+    color: black;
+}
+
+form button {
+    background-color: #544b3d;
+    color: #fffdd0;
+    border: none;
+    margin-top: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 20%;
+}
+
+/* stolen from Google's Gemini */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Key: auto for label, 1fr for input */
+    gap: 0.5em; /* Adjust gap between rows and columns */
+}
+
+.grid-container label {
+    text-align: right; /* Align labels to the right */
+    padding-right: 5px; /* Add some space between label and input */
+  }
+
+.grid-container input {
+  width: 100%; /* Make inputs take up available space */
+  padding: 8px;
+  box-sizing: border-box; /* Include padding in width */
+  border: 1px solid #544b3d;
+}
+
+form textarea {
+    margin-top: 1em;
 }

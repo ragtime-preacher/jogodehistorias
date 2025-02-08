@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "jogodehistorias-beta",
+  "private_key_id": "e6e6f9107f08917a0c42fe418540c5327e4bb848",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCcBzwmGmVgQTiE\nneMWYa7VNDPSp3FMvxr5ONk1UYtJ+F344QiktJ78S/1lBrIGPx3G39xa2hFl5gBK\nWcD/e/VzfgIrUf58yDEvkb0EbDrSiKNgZsWMNWbkVSOg5iWlYBH/IcFHCPE64lMT\neMeBgFk/W3EsSlm6hRVZ47mqk54Gj2vjTQn7ZfT+mj0QmPqY93y8QB4JFLRItFtV\ngUTrb/ez3UwJuppyoXTKX37UKBJbqwKSypSt50famd1yCj6c4604U/rRlRGQ/f8U\nvKrdU2mSnkM29t++NhTnFlfQZnjvnvAcmk0aeYnIkK/3N7uyYglBaZdhv33kEi9y\nKCsTefXFAgMBAAECggEABnCVAV9DB7fsE4B/FC19crlyxHMamHKQdDCuDwbkfcMq\nwRWBTrz8DTPnYOanwogTMaIL3VMVTJRI4Z4L5W+SEqLPh5wHfyfLFz3HuaRBlu7C\noX1fEhmie3JDzsWuUEGjadk/OdrrC/ALQj6Qq24RoO1kVyc4G1xCpJZjKMtqxmCk\nqdKgujfd4Hseu/JqZ55/nq/hhRXZ8uzHDmkai8R8yjnPgjX+v/8B4DhHaxyzIRgW\nu4AuCC/FkDd4a0LgQ17yFKaY5GhEGtwjORXWQRXzmxXdmCzacvcm3fKGVftE1ubj\nwkuyrTSg8aYud12LhlOAvIdLvL4nxV5c6o2Za7gdIQKBgQDUYeqDwaVWoIVf3+2k\n9gbQ+3DH+Q09jLKmV37Hkgn6Kx/ScwUMRAICFPD0X3UvSbi4nBOlFcDv0rIepv/z\nU2J1KRzC2kaCbkjiyVENcFgVsTVj546SMCD7S7yw5N9yyPU1gTlJTdvEtZJGiISS\nmFBL5xXDiXMkwjGneAtwGj1RIQKBgQC8EnnLMfGCG4Q+6Pai+tEh4YZKw4/1azMy\n633ybR7MSr9ooUDrjj4aybvVuwfWWjF2omeDE2KNYPfwoculd0az9gIYsbS9g6VO\nJmzeTXRHRBG6n93KMVC7lf9UE2K61Lxz8loBi3046fheEiV1qfyAlN5f7Yo0H/ay\npyYUKum8JQKBgBQ1bPc0ieMASzCgQiCcOHHSOx0MGbJtnOIvGSUsRD7Fs7V2tFhC\ncF56V6MpIiFpxmXqlAP1WfJ3/fLkuR4SJSA41T/FPUhT7iOGPGwm8Hq/7fCfq/VF\nFx5SSpYacRie/pYkwaqz+eFx1YVYoCTC0YEnb+63OXmZ8NeamJwGIyeBAoGAfuVM\nbjCNjkb4rOXM+9yV3PFpBer7qBCjo/jGqxq7TAYnLfaXchgwiSySYzxlpliGxVAA\n3aznsxK5WBAi8ssO1n/nnDfTBofbsmY00K2cBjXEbJJPOIybt2YWt+i4lezSFr1v\nw1kVraAYJ4jA46pFJ5DKlhkVReRHNPWYuMTXnk0CgYBDKBUgUfPDuDzmFfWEIw7l\n+z0lANzpTTrfvJRuPe3M7UEzZN2mFK6l/NebxwpP7SxB8vzuW6q6NX+v3NAqt4Ox\n/pzKqNPi3RVdO1OhMA4Rwd0W7guV6N3Vq+jNxI/UiGTUV3laX7i/zbsOQWU5eMKV\nfuCde/ga0Fz0BISnxYesoQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "jdh-beta-sheets-access@jogodehistorias-beta.iam.gserviceaccount.com",
+  "client_id": "108720547677531122081",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jdh-beta-sheets-access%40jogodehistorias-beta.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

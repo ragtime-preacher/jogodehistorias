@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>The Story Game</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     </head>
     <header>
-        The Story Game ONLINE
+        The Story Game - online
     </header>
     <body>
-        <p style="font-size: small; font-family:'Times New Roman', Times, serif">
+        <div class="centered-div">
+            <p id="intro" class="content">
 Welcome to the Story Game online!
-<a href="/login-page">Login</a>
-</p>
+This is a basic web app developed by Bryan Loertscher specifically for use by family and personal friends.<br/>
+It models the classic Loertscher family get-together tradition of <em>The Story Game</em>, a game in 
+which the players sit in a circle around a table, each writing a part of a story and passing it on to the 
+next person, who continues the story where they left off.<br/>
+Now that the Loertscher family is spread far and wide, I thought it would be fun to create a version of the game
+ that allows us to span state lines and national boarders in our quest to find out <b>what happened next.</b><br/>
+Enjoy!
+            </p>
+        </div>
+        <div class="centered-div">
+            <a href="/login-page" id="login-link">Login</a>
+        </div>
     </body>
 </html>

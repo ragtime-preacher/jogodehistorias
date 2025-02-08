@@ -4,21 +4,27 @@
     <head>
         <meta charset="UTF-8">
         <title>The Story Game</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     </head>
     <header>
-        The Story Game ONLINE
+        The Story Game - online
     </header>
     <body>
         <h3>The stories are written! Here they are below...</h3>
         <!-- loopin time -->
-         <div>
+         <div class="centered-div">
             {% for i_story in stories %}
                 <div class="story-div">
                     <h4>{{ i_story.author }}</h4>
-                    <pre style="font-family:Arial, Helvetica, sans-serif;"
+                    <pre style="font-family:Arial, Helvetica, sans-serif;" class="content"
                     > {{ i_story.content }}</pre>
                 </div>
             {% endfor %}
          </div>
     </body>
+    <footer>
+        <h6 id="copyright shpeel">&copy; Elder Bryan Loertscher, 2025. All rights reserved.<br/>GitHub: <i>insert github link</i></h6>
+    </footer>
 </html>

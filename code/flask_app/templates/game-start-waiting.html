@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- This line below is mostly for debugging -->
+    <link rel="stylesheet" href="../static/style.css">
     <head>
         <meta charset="UTF-8">
         <title>waiting...</title>
@@ -23,15 +25,20 @@
             // let's do this check every 10 seconds.
             setInterval(checkForGameStart, 10*1000);
         </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     </head>
     <header>
-        The Story Game ONLINE
+        The Story Game - online
     </header>
     <body>
-        <pre style="font-size: small;
-        font-family: Arial, Helvetica, sans-serif;">
-            You are in the room owned by: {{ room_owner }}
-        </pre>
-        <p style="font-size: small;">Waiting for the game to start</p>
+        <div class="centered-div">
+            <pre class="content">You are in the room owned by: {{ room_owner }}</pre>
+            <p class="content">Waiting for the game to start</p>
+        </div>
+        <div class="centered-div">
+            <div id="loader"></div>
+        </div>
     </body>
 </html>
