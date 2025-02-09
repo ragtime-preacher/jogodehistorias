@@ -6,6 +6,5 @@
 pyvenv.cfg
 /venv/*
 /code/flask_app/__pycache__
-/code/flask_app/static
 /creds
 /code/flask_app/__pycache__
