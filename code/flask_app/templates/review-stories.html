@@ -12,12 +12,12 @@
         The Story Game - online
     </header>
     <body>
-        <h3>The stories are written! Here they are below...</h3>
+        <h3 class="content">The stories are written! Here they are below...</h3>
         <!-- loopin time -->
          <div class="centered-div">
             {% for i_story in stories %}
                 <div class="story-div">
-                    <h4>{{ i_story.author }}</h4>
+                    <h4 class="content">{{ i_story.author }}</h4>
                     <pre style="font-family:Arial, Helvetica, sans-serif;" class="content"
                     > {{ i_story.content }}</pre>
                 </div>
