@@ -12,7 +12,7 @@ scope = ["https://spreadsheets.google.com/feeds","https://www.googleapis.com/aut
 # NOTE: now that we're trying to run this on Render, the production branch will
 #   use Render's "Secret file" to keep this api key safe.
 creds = ServiceAccountCredentials.from_json_keyfile_name (
-    "/etc/secrets/jogodehistorias-beta-e6e6f9107f08.json",
+    "/etc/secrets/jogodehistorias-beta-bcfdd26f048c.json",
     scope
 )
 
